@@ -49,9 +49,9 @@ def remove_all_folders_inside_folder(folder):
     folders = [i for i in folder_content if os.path.isdir(os.path.join(folder, i))]
     for folder in folders:
         logger.debug(f'Before path variable')
-        path_to_folder = os.path.join(path, folder)
+        # path_to_folder = os.path.join(path, folder)
         logger.debug(f'After path variable')
-        os.system(f'rm -r {folder}')
+        os.system(f'rm -r ./{folder}')
 
 
 def resize_folder_images(src_dir, dst_dir, size=224):
