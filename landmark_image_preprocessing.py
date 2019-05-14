@@ -47,11 +47,11 @@ def move_images_from_sub_to_root_folder(root_folder, subfolder):
 def remove_all_folders_inside_folder(folder):
     folder_content = os.listdir(folder)
     folders = [i for i in folder_content if os.path.isdir(os.path.join(folder, i))]
-    for folder in folders:
+    for folder_ in folders:
         logger.debug(f'Before path variable')
         # path_to_folder = os.path.join(path, folder)
         logger.debug(f'After path variable')
-        os.system(f'rm -r ./{folder}')
+        os.system(f'rm -rf {folder}/{folder_}')
 
 
 def resize_folder_images(src_dir, dst_dir, size=224):
