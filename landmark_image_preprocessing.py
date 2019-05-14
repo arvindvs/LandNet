@@ -51,7 +51,7 @@ def remove_all_folders_inside_folder(folder):
         logger.debug(f'Before path variable')
         path_to_folder = os.path.join(path, folder)
         logger.debug(f'After path variable')
-        os.system(f'rm -r {path_to_folder}')
+        os.system(f'rm -r {folder}')
 
 
 def resize_folder_images(src_dir, dst_dir, size=224):
@@ -68,7 +68,6 @@ def resize_folder_images(src_dir, dst_dir, size=224):
         if new_img is not None:
             new_img = new_img.convert("RGB")
             new_img.save(dst_filepath)
-            logger.debug(f'MOVING {count} IMAGES TO TRAIN FOLDER')
             count += 1
     logger.debug(f'{src_dir} files resized: {count}')
 
