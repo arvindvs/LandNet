@@ -143,6 +143,7 @@ def download_resize_clean(index):
 
             logger.debug(f'Moving images into root folder')
             move_images_from_sub_to_root_folder(images_folder, images_folder)
+            logger.debug(f'Finished moving images from sub to root folder')
             remove_all_folders_inside_folder(images_folder)
 
             logger.debug(f'Resizing images')
