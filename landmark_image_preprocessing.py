@@ -157,3 +157,9 @@ def download_resize_clean(index):
             logger.error(f'{images_file_name} was not processed due to md5 missmatch')
     except:
         logger.error(f'FAILED TO PROCESS {images_file_name}')
+
+logger = create_logger('download.log')
+
+p = Pool(processes=6)
+p.map(download_resize_clean, range(500))
+p.close()
