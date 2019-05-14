@@ -66,6 +66,7 @@ def resize_folder_images(src_dir, dst_dir, size=224):
         if new_img is not None:
             new_img = new_img.convert("RGB")
             new_img.save(dst_filepath)
+            logger.debug(f'MOVING {count} IMAGES TO TRAIN FOLDER')
             count += 1
     logger.debug(f'{src_dir} files resized: {count}')
 
@@ -150,9 +151,11 @@ def download_resize_clean(index):
                 dst_dir='train',
                 size=224
             )
+            logger.debug(f'FINISHED MOVING IMAGES')
             os.system(f'rm -r {images_folder}')
             os.system(f'rm {images_file_name}')
             os.system(f'rm {images_md5_file_name}')
+            logger.debug(f'FINISHED DELETING ORIGINAL IMAGES')
         else:
             logger.error(f'{images_file_name} was not processed due to md5 missmatch')
     except:
